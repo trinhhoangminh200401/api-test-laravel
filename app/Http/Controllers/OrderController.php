@@ -21,7 +21,6 @@ class OrderController extends Controller
     $query = Order::with('product')
         ->where('user_id', $user->id);
 
-    // Filter theo ngày
     if ($request->has('from')) {
         $query->whereDate('created_at', '>=', $request->from);
     }
